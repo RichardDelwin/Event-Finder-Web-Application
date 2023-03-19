@@ -1,0 +1,6 @@
+.nav-item button{
+  text-decoration: none;
+  color: white;
+  border: solid #00000000 2px;
+  border-radius: 15px;
+}
