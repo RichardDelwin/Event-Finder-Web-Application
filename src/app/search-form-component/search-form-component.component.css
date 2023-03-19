@@ -1,0 +1,24 @@
+#form-container{
+  max-width: 700px;
+  background-color: rgba(150, 150, 150, 0.25);
+  backdrop-filter: blur(10px);
+  position: static;
+  border-radius: 20px;
+}
+
+#form-title{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: white;
+}
+
+#form-container hr{
+  color: rgba(255,255,255,1);
+  height: 2px;
+  width: 96%;
+  margin: 1% auto;
+  background-color: rgba(255,255,255,1);
+}
+
+#form-container label{
+  color: #6cd4d3;
+}
