@@ -1,21 +1,21 @@
 <div id="form-container" class="container pb-4 mt-5 mx-auto">
-  <form class="row gx-5 p-3">
+  <form #f="ngForm" (ngSubmit)="onSearch(f)" class="row gx-5 p-3" ngNativeValidate>
     <div class="col-md-12 pt-5 pb-2 text-center fs-1" id="form-title">
       Events Search
     </div>
     <hr>
     <div class="col-md-12">
       <label for="keyword-field" class="form-label mt-2">Keyword<span style="color:red">*</span></label>
-      <input type="text" class="form-control" id="keyword-field">
+      <input type="text" class="form-control" id="keyword-field" name="keyword-field" required [(ngModel)]="enteredKeyword">
     </div>
     <div class="col-md-6">
       <label for="distance-field" class="form-label mt-3">Distance</label>
-      <input type="number" class="form-control" id="distance-field" placeholder=10>
+      <input type="number" class="form-control" id="distance-field" name="distance-field" placeholder=10 [(ngModel)]="enteredDistance">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5">
       <label for="category-field" class="form-label mt-3">Category<span style="color:red">*</span></label>
-      <select class="form-select" id="category-field" >
-        <option selected>Default</option>
+      <select class="form-select" id="category-field"  name="category-field" [(ngModel)]="selectedCategory">
+        <option value="Default">Default</option>
         <option value="KZFzniwnSyZfZ7v7nJ">Music</option>
         <option value="KZFzniwnSyZfZ7v7nE">Sports</option>
         <option value="KZFzniwnSyZfZ7v7na">Arts & Theatre</option>
@@ -24,12 +24,12 @@
       </select>
     </div>
     <div class="col-md-12">
-      <label for="address-field" class="form-label mt-3">Location<span style="color:red">*</span></label>
-      <input type="text" class="form-control" id="address-field">
+      <label for="location-field" class="form-label mt-3">Location<span style="color:red">*</span></label>
+      <input [disabled]="addressIsDisabled" type="text" class="form-control" id="location-field" name="location-field" required [(ngModel)]="selectedLocation">
     </div>
     <div class="col-12">
       <div class="form-check">
-        <input class="form-check-input mt-4" type="checkbox" id="auto-detect-location">
+        <input [(ngModel)]="isChecked" (change)="checkboxUpdated()" class="form-check-input mt-4" type="checkbox" id="auto-detect-location" name="auto-detect-location">
         <label class="form-check-label mt-3" for="auto-detect-location">
           Auto-detect your location
         </label>
@@ -37,7 +37,7 @@
     </div>
     <div class="col-12 mt-3 text-center">
       <button type="submit" class="btn btn-danger mx-2">SUBMIT</button>
-      <button type="submit" class="btn btn-primary mx-2">CLEAR</button>
+      <button (click)="onClear()" type="button" class="btn btn-primary mx-2">CLEAR</button>
     </div>
   </form>
 </div>
