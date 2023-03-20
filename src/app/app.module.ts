@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { MainBodyComponent } from './main-body/main-body.component';
 import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
 import { SearchFormComponentComponent } from './search-form-component/search-form-component.component';
+import { FavoritesFormComponent } from './favorites-form/favorites-form.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     MainBodyComponent,
     NavbarComponentComponent,
-    SearchFormComponentComponent
+    SearchFormComponentComponent,
+    FavoritesFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
