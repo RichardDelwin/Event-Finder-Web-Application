@@ -1,8 +1,8 @@
 <ul class="nav justify-content-end mb-4">
   <li class="nav-item">
-    <button (click)="navClick($event)" id="nav-Search" class="btn btn-link m-1 px-3 py-2" [ngStyle]="{'border-color': searchButtonBorderColor}" aria-current="page" href="#">Search</button>
+    <button (click)="goToSearch($event)" id="nav-Search" class="btn btn-link m-1 px-3 py-2" [ngStyle]="{'border-color': searchButtonBorderColor}" aria-current="page" href="#">Search</button>
   </li>
   <li class="nav-item">
-    <button (click)="navClick($event)" id="nav-Favorites" class="btn btn-link m-1 px-3 py-2" [ngStyle]="{'border-color': favoritesButtonBorderColor}" href="#">Favorites</button>
+    <button (click)="goToFavorites($event)" id="nav-Favorites" class="btn btn-link m-1 px-3 py-2" [ngStyle]="{'border-color': favoritesButtonBorderColor}" href="#">Favorites</button>
   </li>
 </ul>
