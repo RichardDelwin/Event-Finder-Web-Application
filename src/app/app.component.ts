@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ComponentUpdateService} from "./component-update.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HW8v2';
+  showResultsTable : boolean = false;
+  constructor(private componentUpdateService : ComponentUpdateService) {
+    componentUpdateService.showResultsTable.subscribe(value=>this.showResultsTable = value);
+  }
 }
