@@ -1,0 +1,22 @@
+<div class="table-responsive mx-auto mt-5">
+  <table class="table table-dark table-striped p-0">
+    <thead>
+      <tr>
+        <th style="width:15%;">Date/Time</th>
+        <th style="width:15%;">Icon</th>
+        <th style="width:40%;">Event</th>
+        <th style="width:10%;">Genre</th>
+        <th style="width:20%;">Venue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of allRecordsInTable" (click)="recordClicked(record)">
+        <td class ="justify-content-center"><span class="td-span-date">{{record.localDate}}</span><span class="td-span-time">{{record.localTime}}</span></td>
+        <td><img src="{{record.icon}}"></td>
+        <td>{{record.name}}</td>
+        <td>{{record.classifications || ""}}</td>
+        <td>{{record.venue}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
