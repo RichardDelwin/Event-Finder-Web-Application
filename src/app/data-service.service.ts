@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import {lastValueFrom, Subject} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
@@ -7,7 +8,13 @@ export class DataServiceService {
   ipinfo_token = "7754ebeef5da73"
   ipinfo_url = `https://ipinfo.io/?token=${this.ipinfo_token}`
   gmaps_api = "AIzaSyBMp7FiafypEXvkS4Hrhya4-hhDh3nnlr4";
-  constructor() { }
+
+  node_server_url = "http://localhost:3000/"
+
+  private allRecordsInTableSubject = new Subject<any>();
+  allRecordsInTable = this.allRecordsInTableSubject.asObservable();
+
+  constructor(private http : HttpClient) { }
 
   async getCurrentLocation() : Promise<any>{
 
@@ -41,5 +48,23 @@ export class DataServiceService {
     }
     return result;
   }
+
+  async getEventRecords(params: {[key: string]: any}): Promise<any> {
+
+    let url = this.node_server_url + "search?";
+    const request = await fetch(url + new URLSearchParams(params));
+    const response = await request.json();
+    console.log(response);
+    this.allRecordsInTableSubject.next(response)
+    return response;
+  }
+
+  // async autocompleteData(keyword : string) : Promise<any>{
+  //   let url = "http://localhost:3000/autocomplete?keyword="+keyword;
+  //   const request = await fetch(url);
+  //   const response = await request.json();
+  //
+  //   return response;
+  // }
 
 }
