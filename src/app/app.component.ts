@@ -9,7 +9,9 @@ import {ComponentUpdateService} from "./component-update.service";
 export class AppComponent {
   title = 'HW8v2';
   showResultsTable : boolean = false;
+  showEventsTable : boolean = false;
   constructor(private componentUpdateService : ComponentUpdateService) {
     componentUpdateService.showResultsTable.subscribe(value=>this.showResultsTable = value);
+    componentUpdateService.showEventCard.subscribe(value => this.showEventsTable = value);
   }
 }
