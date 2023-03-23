@@ -16,7 +16,7 @@ export class SearchFormComponentComponent implements OnInit{
   selectedCategory: string = 'Default';
   selectedLocation: string = '';
   enteredKeyword: string = '';
-  enteredDistance: string = '';
+  enteredDistance: Number = 10;
   searchMoviesCtrl = new FormControl();
   minLengthTerm = 1;
   filteredMovies: string[] = [];
@@ -24,9 +24,6 @@ export class SearchFormComponentComponent implements OnInit{
   constructor(private dataService : DataServiceService, private componentUpdateService: ComponentUpdateService) {
   }
 
-  displayWith(value: any) {
-    return value;
-  }
   ngOnInit(){
     this.searchMoviesCtrl.valueChanges
       .pipe(
@@ -47,7 +44,6 @@ export class SearchFormComponentComponent implements OnInit{
     })
   }
 
-
   autoComplete(keyword : string){
 
     const url = "http://localhost:3000/autocomplete?keyword="+keyword;
@@ -66,6 +62,8 @@ export class SearchFormComponentComponent implements OnInit{
   }
 
   async onSearch(f: NgForm) {
+
+    this.cleanComponents();
 
     this.filteredMovies=[];
     console.log(f);
@@ -92,16 +90,20 @@ export class SearchFormComponentComponent implements OnInit{
     console.log(formData);
     this.dataService.getEventRecords(formData);
     this.componentUpdateService.emitChange(true);
+    this.componentUpdateService.updateTableVisibilityOnly("visible");
+    this.componentUpdateService.emitEventCardStatus(false);
   }
 
   onClear() {
     this.enteredKeyword = '';
-    this.enteredDistance = '';
+    this.enteredDistance = 10;
     this.selectedCategory = 'Default';
     this.selectedLocation = '';
     this.addressIsDisabled = false;
     this.isChecked = false;
     this.componentUpdateService.emitChange(false);
+    this.componentUpdateService.updateTableVisibilityOnly("visible");
+    this.componentUpdateService.emitEventCardStatus(false);
   }
 
   checkboxUpdated() {
@@ -114,7 +116,9 @@ export class SearchFormComponentComponent implements OnInit{
     }
   }
 
-  onSelected() {
-    this.enteredKeyword = this.enteredDistance;
+  cleanComponents(){
+    this.componentUpdateService.emitChange(false);
+    this.componentUpdateService.emitEventCardStatus(false);
+    this.componentUpdateService.updateTableVisibilityOnly("visible");
   }
 }
