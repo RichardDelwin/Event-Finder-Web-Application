@@ -1,0 +1,44 @@
+<div id="details-container" class="container my-5">
+
+  <div class="text-start" id="details-back">
+    <span (click)="backClicked()"><mat-icon id="back_icon" fontIcon="arrow_back_ios"></mat-icon><u>Back</u></span>
+  </div>
+
+  <div *ngIf="eventDetails" class="col-md-12 pt-5 pb-2 text-center fs-3 mb-5" id="details-title">
+    {{eventDetails.name}}
+  </div>
+
+  <mat-tab-group mat-align-tabs="center" mat-stretch-tabs="false" mat-align-tabs="center" backgroundColor="primary">
+    <mat-tab label="Events">
+      <div class="container" *ngIf="eventDetails">
+        <div class="row">
+        <div class="col-md-6 left-container text-center">
+          <h5 *ngIf="eventDetails.localDate" class="mt-3" >Date</h5>
+          <p>{{eventDetails.localDate}}</p>
+          <h5 *ngIf="eventDetails.attractions.length > 0" class="mt-3">Artist/Team</h5>
+          <p>{{eventDetails.attractions.join(" | ")}}</p>
+          <h5 class="mt-3">Venue</h5>
+          <p>{{eventDetails.venue}}</p>
+          <h5 class="mt-3">Genres</h5>
+          <p>{{eventDetails.classifications.join(" | ")}}</p>
+          <h5 class="mt-3">Price Ranges</h5>
+          <p>{{eventDetails.priceRanges_min}} - {{eventDetails.priceRanges_max}}</p>
+          <h5 class="mt-3">Ticket Status</h5>
+          <p>{{eventDetails.ticketStatus}}</p>
+          <h5 class="mt-3">Buy Ticket At:</h5>
+          <p>ticketmaster</p>
+        </div>
+        <div class="col-md-6 seatmap-image align-self-center">
+          <img src={{eventDetails.seatMap}}>
+        </div>
+        </div>
+      </div>
+      <div class="container col-md-12 text-center my-4 share-on">
+        <span>Share on: &nbsp;<i class="fa-brands fa-twitter fa-2xl" style="color: #00eeff;"></i>&nbsp;<i class="fa-brands fa-square-facebook fa-2xl" style="color: #0040ff;"></i></span>
+      </div>
+    </mat-tab>
+    <mat-tab label="Artists/Teams">Artists/Teams</mat-tab>
+    <mat-tab label="Venue">Venue</mat-tab>
+  </mat-tab-group>
+</div>
+
