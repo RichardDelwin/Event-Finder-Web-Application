@@ -1,0 +1,56 @@
+#details-container{
+  max-width: 1000px;
+  background-color: rgba(150, 150, 150, 0.25);
+  backdrop-filter: blur(10px);
+  padding-left : 0;
+  padding-right : 0;
+  overflow:auto;
+  /*position: static;*/
+}
+#back_icon{
+  font-size: small;
+  margin-right: -10px;
+  margin-bottom:-11px;
+}
+#details-back{
+  margin-top: 1rem;
+  margin-left: 1rem;
+  color: white;
+}
+#details-title{
+  font-family: Arial;
+  color: white;
+}
+
+/*.mat-mdc-tab-body-wrapper{*/
+/*  background-color: rgb(0,0,0,0);*/
+/*}*/
+/*::ng-deep.mat-tab-label-container{*/
+/*  background-color: teal;*/
+/*}*/
+
+.mat-mdc-tab-group.mat-background-primary, .mat-mdc-tab-nav-bar.mat-background-primary {
+  --mat-mdc-tab-header-with-background-background-color:teal;
+}
+
+.seatmap-image img{
+  max-width: 100%;
+  max-height: 100%;
+  width:400px;
+  height:400px;
+  object-fit: scale-down;
+}
+
+.left-container{
+  color : white;
+}
+
+.left-container h5{
+  font-family: Helvetica, Arial, sans-serif;
+  color: #6cfbdc;
+  font-weight: normal;
+}
+
+.share-on{
+  color: white;
+}
