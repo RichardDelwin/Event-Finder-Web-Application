@@ -14,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { EventTabComponent } from './event-tab/event-tab.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -22,19 +25,22 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     NavbarComponentComponent,
     SearchFormComponentComponent,
     FavoritesFormComponent,
-    ResultsTableComponent
+    ResultsTableComponent,
+    EventTabComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatAutocompleteModule,
-        ReactiveFormsModule,
-        MatProgressSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatIconModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
