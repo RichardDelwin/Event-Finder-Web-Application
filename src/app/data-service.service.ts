@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {lastValueFrom, Subject} from "rxjs";
+import {Subject} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +13,11 @@ export class DataServiceService {
   private allRecordsInTableSubject = new Subject<any>();
   allRecordsInTable = this.allRecordsInTableSubject.asObservable();
 
-  constructor(private http : HttpClient) { }
+
+  private eventDetailsSubject = new Subject<any>();
+  eventDetails = this.eventDetailsSubject.asObservable();
+
+  constructor() { }
 
   async getCurrentLocation() : Promise<any>{
 
@@ -56,6 +59,16 @@ export class DataServiceService {
     const response = await request.json();
     console.log(response);
     this.allRecordsInTableSubject.next(response)
+    return response;
+  }
+
+  async getEventDetails(params: {[key: string]: any}): Promise<any> {
+
+    let url = this.node_server_url + "eventSearch?";
+    const request = await fetch(url + new URLSearchParams(params));
+    const response = await request.json();
+    console.log(response);
+    this.eventDetailsSubject.next(response)
     return response;
   }
 
