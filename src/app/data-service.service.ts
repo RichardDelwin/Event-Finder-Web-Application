@@ -8,7 +8,7 @@ export class DataServiceService {
   ipinfo_url = `https://ipinfo.io/?token=${this.ipinfo_token}`
   gmaps_api = "AIzaSyBMp7FiafypEXvkS4Hrhya4-hhDh3nnlr4";
 
-  node_server_url = "http://localhost:3000/"
+  node_server_url = "http://localhost:3500/"
 
   private allRecordsInTableSubject = new Subject<any>();
   allRecordsInTable = this.allRecordsInTableSubject.asObservable();
@@ -16,6 +16,11 @@ export class DataServiceService {
 
   private eventDetailsSubject = new Subject<any>();
   eventDetails = this.eventDetailsSubject.asObservable();
+
+  private artistsSpotifySubject = new Subject<any>();
+  artistsSpotify = this.artistsSpotifySubject.asObservable();
+
+
 
   constructor() { }
 
@@ -69,7 +74,27 @@ export class DataServiceService {
     const response = await request.json();
     console.log(response);
     this.eventDetailsSubject.next(response)
+    let res = await this.getArtistData(response);
+    this.artistsSpotifySubject.next(res);
     return response;
+  }
+
+  async getArtistData(data: any){
+
+    let res : any = []
+    if(data.attractionsMusic.length == 0){
+      return res;
+    }
+    else{
+      for(let i=0; i<data.attractionsMusic.length; i++){
+        let url = this.node_server_url + "spotify?";
+        const request = await fetch(url + new URLSearchParams({"artist":data.attractionsMusic[i]}));
+        const response = await request.json();
+        res.push(response);
+      }
+      return res;
+    }
+
   }
 
   // async autocompleteData(keyword : string) : Promise<any>{
