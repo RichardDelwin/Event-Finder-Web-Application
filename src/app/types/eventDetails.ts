@@ -10,5 +10,6 @@ export interface eventDetailsType {
   seatMap: string,
   localDate: string,
   localTime: string,
-  venue: string
+  venue: string,
+  venueId:string
 }
