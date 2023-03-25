@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataServiceService} from "../data-service.service";
 import {ComponentUpdateService} from "../component-update.service";
 import {eventDetailsType} from "../types/eventDetails";
@@ -8,14 +8,16 @@ import {eventDetailsType} from "../types/eventDetails";
   templateUrl: './event-tab.component.html',
   styleUrls: ['./event-tab.component.css']
 })
-export class EventTabComponent{
+export class EventTabComponent implements OnInit {
 
   eventDetails: eventDetailsType | undefined;
-  artists: any | undefined;
+  public artists: any | undefined;
 
+  venueDetails : any;
   constructor(private dataService : DataServiceService, private componentUpdateService : ComponentUpdateService) {
     dataService.eventDetails.subscribe(value=>this.eventDetails = value);
     dataService.artistsSpotify.subscribe(value=>this.artists = value);
+    dataService.venueDetails.subscribe(value=>this.venueDetails = value);
   }
 
   backClicked() {
@@ -25,6 +27,10 @@ export class EventTabComponent{
     // this.componentUpdateService.emitChange(true);
     console.log(this.eventDetails);
     console.log(this.artists);
+    console.log(this.venueDetails);
+  }
+
+  ngOnInit(): void {
   }
 
 }
