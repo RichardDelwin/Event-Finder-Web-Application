@@ -1,3 +1,4 @@
+/*https://stackoverflow.com/questions/52332952/can-we-use-partial-collapse-concept-in-bootstrap-4*/
 #details-container{
   max-width: 1000px;
   background-color: rgba(150, 150, 150, 0.25);
@@ -53,4 +54,63 @@
 
 .share-on{
   color: white;
+}
+
+.carousel-container{
+  margin-top:2rem;
+  padding-right: calc(var(--bs-gutter-x) * 4.5);
+  padding-left: calc(var(--bs-gutter-x) * 4.5);
+}
+.carousel-control-prev, .carousel-control-next{
+  width :10%;
+}
+.img-thumbnail{
+  padding: 0rem;
+  background-color: #0000;
+  border: 0px;
+  max-width: 80%;
+}
+
+.album-cell{
+  text-align: center;
+}
+
+.text-artist{
+  font-family: Helvetica, Arial, sans-serif;
+  color: #6cfbdc;
+  font-weight: normal;
+  font-size: larger;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.artist-stat{
+  text-align: center;
+  color: white;
+}
+.fa-custom{
+  font-size: 2.5em;
+}
+
+.featuring-tag {
+  color: #6cfbdc;
+}
+
+.no-records-artists{
+  text-align: center;
+  background-color: white;
+  color: red;
+  margin-top: 5rem;
+  margin-bottom: 8rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.text-venue{
+  font-family: Helvetica, Arial, sans-serif;
+  color: #6cfbdc;
+  font-weight: normal;
+  font-size: larger;
+  text-align: center;
+  margin-top: 1rem;
 }
