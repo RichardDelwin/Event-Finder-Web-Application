@@ -20,7 +20,8 @@ export class DataServiceService {
   private artistsSpotifySubject = new Subject<any>();
   artistsSpotify = this.artistsSpotifySubject.asObservable();
 
-
+  private venueDetailsSubject = new Subject<any>();
+  venueDetails = this.venueDetailsSubject.asObservable();
 
   constructor() { }
 
@@ -72,10 +73,22 @@ export class DataServiceService {
     let url = this.node_server_url + "eventSearch?";
     const request = await fetch(url + new URLSearchParams(params));
     const response = await request.json();
-    console.log(response);
     this.eventDetailsSubject.next(response)
+
+    let venueRes = await this.getVenueDetails({"keyword": response.venue})
+    this.venueDetailsSubject.next(venueRes);
+
     let res = await this.getArtistData(response);
     this.artistsSpotifySubject.next(res);
+
+    return response;
+  }
+
+  async getVenueDetails(params: {[key:string]: any}) : Promise<any>{
+
+    let url = this.node_server_url + "venueSearch?";
+    const request = await fetch(url + new URLSearchParams(params));
+    const response = await request.json();
     return response;
   }
 
