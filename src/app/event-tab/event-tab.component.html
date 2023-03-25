@@ -37,8 +37,84 @@
         <span>Share on: &nbsp;<a *ngIf="eventDetails" target="_blank" href="http://twitter.com/share?text=Check {{eventDetails.name}} on Ticketmaster.&url={{eventDetails.buyAt}}"><i class="fa-brands fa-twitter fa-2xl" style="color: #00eeff;"></i></a>&nbsp;<a *ngIf="eventDetails" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{eventDetails.buyAt}}&amp;src=sdkpreparse"><i class="fa-brands fa-square-facebook fa-2xl" style="color: #0040ff;"></i></a></span>
       </div>
     </mat-tab>
-    <mat-tab label="Artists/Teams">Artists/Teams</mat-tab>
-    <mat-tab label="Venue">Venue</mat-tab>
+    <mat-tab label="Artists/Teams">
+      <div *ngIf="artists" class="carousel-container">
+        <div id="artist-carousal" class="carousel slide" data-bs-interval="false">
+          <div  class="carousel-inner">
+            <div *ngFor="let artist of artists; let i= index;" class="carousel-item" [ngClass]="{'active':i==0}">
+              <div class="row">
+                <div *ngIf="artist.image" class="col-md-3" style="text-align: center">
+                  <img class="img-thumbnail rounded-circle" src={{artist.image}}>
+                  <div class="text-artist mt-2" style="font-size: x-large">{{artist.name}}</div>
+                </div>
+                <div *ngIf="artists" class="col-md-3 align-self-center mt-3">
+                  <div class="position-relative">
+                  <div class="text-artist">Popularity</div>
+                  <mat-progress-spinner class="artist-stat" style="margin:0 auto;" value={{artist.popularity}} color="warn" mode="determinate" diameter="40"></mat-progress-spinner>
+                  <div class="position-absolute top-50 start-50 translate-middle" style="color: white;margin-top: 1.35rem;">{{ artist.popularity }}</div>
+                  </div>
+                  </div>
+                <div *ngIf="artists" class="col-md-3 align-self-center">
+                  <div class="text-artist">Followers</div>
+                  <div class="artist-stat">{{artist.followers}}</div>
+                </div>
+                <div *ngIf="artists" class="col-md-3 align-self-center">
+                  <div class="text-artist">Spotify Link </div>
+                  <div class="artist-stat"><i class="fa-brands fa-spotify fa-2xl fa-custom" style="color: #02921a;"></i></div>
+                </div>
+              </div>
+              <div class="row mt-3 featuring-tag">
+                <div> Album Featuring {{artist.name}}</div>
+              </div>
+              <div class="row">
+                <div *ngFor=" let artist_album of artist.albums" class="col-md-4 my-4 album-cell">
+                  <img class="img-thumbnail album-img" src={{artist_album}}>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button *ngIf="artists && artists.length>1" class="carousel-control-prev" type="button" data-bs-target="#artist-carousal" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button *ngIf="artists && artists.length>1" class="carousel-control-next" type="button" data-bs-target="#artist-carousal" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="container my-5" *ngIf="artists===undefined || (artists && artists.length==0)">
+        <div class="no-records-artists">No music related artist details to show</div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Venue">
+      <div class="container" *ngIf="venueDetails">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <div class="text-venue">Name</div>
+            <div class="artist-stat">{{venueDetails.name}}</div>
+
+            <div class="text-venue">Address</div>
+            <div class="artist-stat">{{venueDetails.address}}, {{venueDetails.city}}, {{venueDetails.state}}</div>
+
+            <div *ngIf="venueDetails.phone" class="text-venue">Phone Number</div>
+            <div class="artist-stat">{{venueDetails.phone}}</div>
+          </div>
+
+          <div *ngIf="venueDetails" class="col-md-6 text-center">
+            <div *ngIf="venueDetails.openHours" class="text-venue">Open Hours</div>
+            <p class="artist-stat" >{{venueDetails.openHours}}</p>
+
+            <div *ngIf="venueDetails.generalRule" class="text-venue">General Rule</div>
+            <p class="collapse artist-stat" id="collapseExample2" aria-expanded="false" >{{venueDetails.generalRule}}</p>
+
+            <div *ngIf="venueDetails.childRule" class="text-venue">Child Rule</div>
+            <div class="artist-stat">{{venueDetails.childRule}}</div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>
 
