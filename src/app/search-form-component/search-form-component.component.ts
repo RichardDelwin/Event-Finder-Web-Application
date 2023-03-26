@@ -34,7 +34,7 @@ export class SearchFormComponentComponent implements OnInit{
           return res !== null && res.length >= this.minLengthTerm;
         }),
         distinctUntilChanged(),
-        debounceTime(1000),
+        debounceTime(100),
       tap(()=>{
         this.filteredMovies=[];
         this.isLoading= true})).
