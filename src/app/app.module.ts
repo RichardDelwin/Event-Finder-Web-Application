@@ -17,6 +17,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { EventTabComponent } from './event-tab/event-tab.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
+import { GmapsModelComponent } from './gmaps-model/gmaps-model.component';
+import {GoogleMapsModule} from "@angular/google-maps";
 
 @NgModule({
   declarations: [
@@ -26,21 +28,23 @@ import {MatIconModule} from "@angular/material/icon";
     SearchFormComponentComponent,
     FavoritesFormComponent,
     ResultsTableComponent,
-    EventTabComponent
+    EventTabComponent,
+    GmapsModelComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    ReactiveFormsModule,
-    MatProgressSpinnerModule,
-    MatTabsModule,
-    MatIconModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        ReactiveFormsModule,
+        MatProgressSpinnerModule,
+        MatTabsModule,
+        MatIconModule,
+        GoogleMapsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
