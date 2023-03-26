@@ -14,6 +14,10 @@ export class EventTabComponent implements OnInit {
   public artists: any | undefined;
 
   venueDetails : any;
+  show: boolean = false;
+  show_gr: boolean = false;
+  show_cr: boolean = false;
+
   constructor(private dataService : DataServiceService, private componentUpdateService : ComponentUpdateService) {
     dataService.eventDetails.subscribe(value=>this.eventDetails = value);
     dataService.artistsSpotify.subscribe(value=>this.artists = value);
