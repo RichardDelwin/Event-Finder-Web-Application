@@ -19,6 +19,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import { GmapsModelComponent } from './gmaps-model/gmaps-model.component';
 import {GoogleMapsModule} from "@angular/google-maps";
+import { SearchPageComponent } from './search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {GoogleMapsModule} from "@angular/google-maps";
     FavoritesFormComponent,
     ResultsTableComponent,
     EventTabComponent,
-    GmapsModelComponent
+    GmapsModelComponent,
+    SearchPageComponent
   ],
     imports: [
         BrowserModule,
