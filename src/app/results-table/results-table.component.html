@@ -1,4 +1,8 @@
-<div class="table-responsive mx-auto mt-5" [ngClass]="classVisibility">
+<div *ngIf="!allRecordsInTable || allRecordsInTable.length==0" class="container mx-auto" >
+  <div class="no-res-table mx-auto">No results available</div>
+</div>
+
+<div *ngIf="allRecordsInTable && allRecordsInTable.length>0" class="table-responsive mx-auto mt-5" [ngClass]="classVisibility">
   <table class="table table-dark table-striped p-0">
     <thead>
       <tr>
