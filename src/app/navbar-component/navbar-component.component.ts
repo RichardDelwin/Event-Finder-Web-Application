@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -6,16 +6,28 @@ import {Router} from "@angular/router";
   templateUrl: './navbar-component.component.html',
   styleUrls: ['./navbar-component.component.css']
 })
-export class NavbarComponentComponent {
+export class NavbarComponentComponent implements OnInit{
 
   public favoritesButtonBorderColor: string = '#00000000';
   public searchButtonBorderColor: string = 'white';
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2, private router: Router) {}
+  // routerState :string = "";
+
+  constructor(public router: Router) {
+      // this.routerState = router.url;
+  }
 
   ngOnInit() {
-      this.favoritesButtonBorderColor = "rgba(0, 0, 0, 0)";
-      this.searchButtonBorderColor = "white";
+    // if(this.router.url == '/search') {
+    //   console.log("Route = ",this.router.url);
+    //   this.favoritesButtonBorderColor = "white";
+    //   this.searchButtonBorderColor = "rgba(0, 0, 0, 0)";
+    //
+    // }
+    // else{
+    //   this.favoritesButtonBorderColor = "rgba(0, 0, 0, 0)";
+    //   this.searchButtonBorderColor = "white";
+    // }
   }
 
   didStateChange = (x:string)=> x!="white";
@@ -29,8 +41,10 @@ export class NavbarComponentComponent {
 
     const currentColor : string = event.target.style.borderColor;
     if(this.didStateChange(currentColor)) {
+
       this.swapColors();
       this.router.navigate(['/favorites']);
+      // this.routerState = '/favorites'
     }
   }
 
@@ -39,6 +53,7 @@ export class NavbarComponentComponent {
     if(this.didStateChange(currentColor)) {
       this.swapColors();
       this.router.navigate(['/search']);
+      // this.routerState = '/search'
     }
   }
 }
