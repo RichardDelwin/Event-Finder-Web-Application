@@ -1,0 +1,30 @@
+.fav-table{
+  max-width:1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.table td{
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.table th{
+  text-align: center;
+}
+
+.table{
+  border-radius: 20px;
+}
+
+.no-favs-table{
+  max-width: 800px;
+  text-align: center;
+  background-color: white;
+  color: red;
+  margin-top: 5rem;
+  margin-bottom: 8rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
