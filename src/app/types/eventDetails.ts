@@ -1,6 +1,7 @@
 export interface eventDetailsType {
   ticketStatusColor:string;
   ticketStatusName: string;
+  id:string,
   name: string,
   attractions: string[],
   attractionsUrl: string[],
