@@ -32,12 +32,12 @@
     </div>
     <div class="col-md-12">
       <label for="location-field" class="form-label mt-3">Location<span style="color:red">*</span></label>
-      <input [disabled]="addressIsDisabled" type="text" class="form-control" id="location-field" name="location-field" required [(ngModel)]="selectedLocation">
+      <input [disabled]="addressIsDisabled" type="text" class="form-control" id="location-field" name="location-field" required [(ngModel)]="selectedLocation" autocomplete="off">
     </div>
     <div class="col-12">
       <div class="form-check">
         <input [(ngModel)]="isChecked" (change)="checkboxUpdated()" class="form-check-input mt-4" type="checkbox" id="auto-detect-location" name="auto-detect-location">
-        <label class="form-check-label mt-3" for="auto-detect-location">
+        <label class="form-check-label" for="auto-detect-location">
           Auto-detect your location
         </label>
       </div>
