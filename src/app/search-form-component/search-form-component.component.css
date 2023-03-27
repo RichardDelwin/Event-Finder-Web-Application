@@ -22,3 +22,7 @@
 #form-container label{
   color: #6cd4d3;
 }
+
+.form-check-label{
+  margin-top: 1.25rem;
+}
