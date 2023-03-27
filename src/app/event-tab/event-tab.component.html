@@ -5,10 +5,10 @@
   </div>
 
   <div *ngIf="eventDetails" class="col-md-12 pt-5 pb-2 text-center fs-3 mb-5" id="details-title">
-    {{eventDetails.name}}
+    {{eventDetails.name}} <span style="cursor: pointer" (click)="HeartOrDeheart(eventDetails)"><i [ngClass]="isHearted(eventDetails.id) ? 'fa-solid fa-heart yeahHeart'  : 'fa-regular fa-heart noHeart'"></i></span>
   </div>
 
-  <mat-tab-group mat-align-tabs="center" mat-stretch-tabs="false" mat-align-tabs="center" backgroundColor="primary">
+  <mat-tab-group mat-align-tabs="center" mat-stretch-tabs="false" backgroundColor="primary">
     <mat-tab label="Events">
       <div class="container" *ngIf="eventDetails">
         <div class="row">
@@ -34,7 +34,7 @@
         </div>
 
       <div class="container col-md-12 text-center my-4 share-on">
-        <span>Share on: &nbsp;<a *ngIf="eventDetails" target="_blank" href="http://twitter.com/share?text=Check {{eventDetails.name}} on Ticketmaster.&url={{eventDetails.buyAt}}"><i class="fa-brands fa-twitter fa-2xl" style="color: #00eeff;"></i></a>&nbsp;<a *ngIf="eventDetails" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{eventDetails.buyAt}}&amp;src=sdkpreparse"><i class="fa-brands fa-square-facebook fa-2xl" style="color: #0040ff;"></i></a></span>
+        <span>Share on: &nbsp;<a *ngIf="eventDetails" target="_blank" href="http://twitter.com/share?text={{encodeURITwitter(eventDetails.name)}} on Ticketmaster.&url={{eventDetails.buyAt}}"><i class="fa-brands fa-twitter fa-2xl" style="color: #00eeff;"></i></a>&nbsp;<a *ngIf="eventDetails" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{eventDetails.buyAt}}&amp;src=sdkpreparse"><i class="fa-brands fa-square-facebook fa-2xl" style="color: #0040ff;"></i></a></span>
       </div>
       </div>
     </mat-tab>
@@ -131,38 +131,11 @@
         </div>
         <div class="row">
           <div class="col-12 mt-3 text-center">
-<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">-->
-<!--              Vertically centered modal-->
-<!--            </button>-->
             <button type="button" class="btn btn-danger mt-5 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Show venue on Google map</button>
-<!--            <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button>-->
-<!--            <button type="button" class="btn btn-danger mt-5 mx-2" data-bs-toggle="modal" data-bs-target="#gmapsModal">Show venue on Google map</button>-->
-<!--            <button type="submit" class="btn btn-danger mt-5 mx-2">Show venue on Google map</button>-->
           </div>
         </div>
       </div>
     </mat-tab>
   </mat-tab-group>
 </div>
-<!--<div id="gmapsModal" class="modal-dialog modal-dialog-centered">-->
-
-
-
-
-
-<!--<ng-template #mymodal let-modal>-->
-<!--  <div class="modal-header">-->
-<!--    <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>-->
-<!--    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">-->
-<!--      <span aria-hidden="true">×</span>-->
-<!--    </button>-->
-<!--  </div>-->
-<!--  <div class="modal-body">-->
-<!--    This is example from ItSolutionStuff.com-->
-<!--  </div>-->
-<!--  <div class="modal-footer">-->
-<!--    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>-->
-<!--  </div>-->
-<!--</ng-template>-->
-<!--</div>-->
 
