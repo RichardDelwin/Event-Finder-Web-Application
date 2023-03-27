@@ -37,4 +37,70 @@ export class EventTabComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  encodeURITwitter(name: string) {
+    name = "Check "+name;
+    return encodeURI(name);
+  }
+
+  isHearted(id:string){
+    return localStorage.getItem(id) !== null;
+  }
+
+  private Heartit(data : any){
+
+    alert("Event Added to Favorites!");
+    localStorage.setItem(data.id, "true");
+
+    let jsonData : any[] = [];
+
+    if("fav-table" in localStorage){
+      jsonData = JSON.parse(localStorage.getItem("fav-table") || "");
+    }
+
+    jsonData.push({
+      id : data.id,
+      date : data.localDate,
+      event : data.name,
+      category: data.classifications.join(" | "),
+      venue : data.venue,
+    });
+
+    let finalData = JSON.stringify(jsonData);
+
+    localStorage.setItem("fav-table", finalData);
+  }
+  private DeHeartIt(id: string) {
+
+    alert("Event Removed from Favorites!");
+    localStorage.removeItem(id);
+
+    let jsonData : any[] = [];
+
+    if("fav-table" in localStorage){
+      jsonData = JSON.parse(localStorage.getItem("fav-table") || '');
+    }
+
+    jsonData = jsonData.filter(item=> item.id != id)
+
+    let finalData = JSON.stringify(jsonData);
+
+    localStorage.setItem("fav-table", finalData);
+
+  }
+
+  HeartOrDeheart(data:any) {
+
+    let id = data.id;
+
+    if(this.isHearted(id)) {
+      this.DeHeartIt(id);
+    }else{
+      this.Heartit(data);
+    }
+
+  }
 }
+
+
+//References
+//https://javascript.plainenglish.io/how-to-remove-an-element-from-an-array-in-javascript-54612785295e
