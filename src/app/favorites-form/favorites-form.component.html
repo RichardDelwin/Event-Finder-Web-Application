@@ -1,1 +1,28 @@
-<p>favorites-form works!</p>
+<div class="container mx-auto" *ngIf="!allRecordsInFavs || allRecordsInFavs.length == 0" >
+  <div class="no-favs-table mx-auto">No favorite events to show</div>
+</div>
+
+<div *ngIf="allRecordsInFavs!==null && allRecordsInFavs.length > 0" class="table-responsive mx-auto mt-5">
+  <table class="table table-striped p-0 fav-table">
+    <thead>
+    <tr>
+      <th style="width:4.5%;">#</th>
+      <th style="width:16%;">Date</th>
+      <th style="width:30%;">Event</th>
+      <th style="width:21.5%;">Category</th>
+      <th style="width:18.5%;">Venue</th>
+      <th style="width:9.5%;">Favorite</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="allRecordsInFavs">
+    <tr *ngFor="let record of allRecordsInFavs; let i = index;">
+      <td style="font-weight: bold">{{ i + 1}}</td>
+      <td ><span class="td-span-date">{{record.date || ""}}</span></td>
+      <td>{{record.event || ""}}</td>
+      <td>{{record.category || ""}}</td>
+      <td>{{record.venue || ""}}</td>
+      <td (click)="deleteItem(record.id)" style="cursor: pointer"><i class="fa-regular fa-trash-can" style="color: #000000;"></i></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
