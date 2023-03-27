@@ -75,7 +75,7 @@ export class DataServiceService {
     const response = await request.json();
     this.eventDetailsSubject.next(response)
 
-    let venueRes = await this.getVenueDetails({"keyword": response.venue})
+    let venueRes = await this.getVenueDetails({"id": response.venueId})
     this.venueDetailsSubject.next(venueRes);
 
     let res = await this.getArtistData(response);
