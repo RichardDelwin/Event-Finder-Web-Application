@@ -14,3 +14,8 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+// References
+// https://angular.io/guide/router
+// https://www.smashingmagazine.com/2018/11/a-complete-guide-to-routing-in-angular/
