@@ -119,3 +119,9 @@ export class DataServiceService {
   // }
 
 }
+
+
+// References
+// https://www.edgesidesolutions.com/using-angular-shared-service/
+// https://www.dotnettricks.com/learn/angular/sharing-data-between-angular-components-methods
+// https://fireship.io/lessons/sharing-data-between-angular-components-four-methods/
