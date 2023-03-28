@@ -16,3 +16,8 @@ export interface eventDetailsType {
   venue: string,
   venueId:string
 }
+
+
+// References
+// https://vegibit.com/how-to-use-an-interface-in-angular/
+// https://stackoverflow.com/questions/36749030/create-instance-using-an-interface
