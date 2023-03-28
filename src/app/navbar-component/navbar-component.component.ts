@@ -57,3 +57,11 @@ export class NavbarComponentComponent implements OnInit{
     }
   }
 }
+
+
+// References
+// https://angular.io/guide/router
+// https://stackoverflow.com/questions/34597835/how-to-get-current-route
+// https://stackoverflow.com/questions/71553969/assigning-background-color-border-color-to-buttons-dynamically-in-angular
+// https://stackoverflow.com/questions/59939601/add-border-and-background-color-when-i-click-the-yes-button
+// https://angular.io/guide/event-binding-concepts
