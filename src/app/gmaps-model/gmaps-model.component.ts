@@ -28,3 +28,7 @@ export class GmapsModelComponent {
 
 
 }
+
+
+// References
+// https://medium.com/swlh/angular-google-map-component-basics-and-tips-7ff679e383ff
