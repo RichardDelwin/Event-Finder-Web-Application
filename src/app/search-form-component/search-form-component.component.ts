@@ -122,3 +122,12 @@ export class SearchFormComponentComponent implements OnInit{
     this.componentUpdateService.updateTableVisibilityOnly("visible");
   }
 }
+
+
+// References
+// https://www.edgesidesolutions.com/using-angular-shared-service/
+// https://www.dotnettricks.com/learn/angular/sharing-data-between-angular-components-methods
+// https://fireship.io/lessons/sharing-data-between-angular-components-four-methods/
+// Autocomplete - link provided in HW instructions
+// https://stackoverflow.com/questions/44213789/angular-validation-with-required-not-working
+
