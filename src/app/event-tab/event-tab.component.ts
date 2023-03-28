@@ -104,3 +104,4 @@ export class EventTabComponent implements OnInit {
 
 //References
 //https://javascript.plainenglish.io/how-to-remove-an-element-from-an-array-in-javascript-54612785295e
+// https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage
