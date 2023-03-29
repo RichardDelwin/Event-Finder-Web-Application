@@ -39,7 +39,7 @@
       </div>
     </mat-tab>
     <mat-tab label="Artists/Teams">
-      <div *ngIf="artists" class="carousel-container">
+      <div *ngIf="artists && artists.length>0" class="carousel-container">
         <div id="artist-carousal" class="carousel carousel-dark slide" data-bs-interval="false">
           <div  class="carousel-inner">
             <div *ngFor="let artist of artists; let i= index;" class="carousel-item" [ngClass]="{'active':i==0}">
@@ -85,8 +85,10 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="container my-5" *ngIf="artists===undefined || (artists && artists.length==0)">
+      <div class="container my-5" *ngIf="artists!==undefined &&(!artists || (artists && artists.length==0))">
         <div class="no-records-artists">No music related artist details to show</div>
+      </div>
+      <div class="container my-5 temp-container" *ngIf="artists===undefined">
       </div>
     </mat-tab>
     <mat-tab label="Venue">
