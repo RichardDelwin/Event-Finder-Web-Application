@@ -16,7 +16,8 @@
   height: 2px;
   width: 96%;
   margin: 1% auto;
-  background-color: rgba(255,255,255,1);
+  /*background-color: rgba(255,255,255,1);*/
+  opacity: 1;
 }
 
 #form-container label{
