@@ -9,7 +9,7 @@ import {ComponentUpdateService} from "../component-update.service";
 })
 export class ResultsTableComponent {
 
-  allRecordsInTable : any;
+  allRecordsInTable : any = undefined;
   classVisibility: string = "visible";
   constructor(private dataService : DataServiceService, private componentUpdateService : ComponentUpdateService) {
     dataService.allRecordsInTable.subscribe(value=>this.allRecordsInTable = value);
