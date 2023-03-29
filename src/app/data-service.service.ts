@@ -103,7 +103,10 @@ export class DataServiceService {
         let url = this.node_server_url + "spotify?";
         const request = await fetch(url + new URLSearchParams({"artist":data.attractionsMusic[i]}));
         const response = await request.json();
-        res.push(response);
+
+        if(Object.keys(response).length !==0) {
+          res.push(response);
+        }
       }
       return res;
     }
