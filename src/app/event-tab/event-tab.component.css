@@ -1,13 +1,15 @@
 /*https://stackoverflow.com/questions/52332952/can-we-use-partial-collapse-concept-in-bootstrap-4*/
 /*https://stackoverflow.com/questions/46249541/change-arrow-colors-in-bootstraps-carousel*/
 #details-container{
-  max-width: 1000px;
+  max-width: 850px;
   background-color: rgba(150, 150, 150, 0.25);
   backdrop-filter: blur(10px);
   padding-left : 0;
   padding-right : 0;
   overflow:auto;
   min-height:100px;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
   /*position: static;*/
 }
 #back_icon{
@@ -59,9 +61,12 @@
 }
 
 .carousel-container{
-  margin-top:2rem;
-  padding-right: calc(var(--bs-gutter-x) * 4.5);
-  padding-left: calc(var(--bs-gutter-x) * 4.5);
+  margin-top:1rem;
+  /*padding-right: calc(var(--bs-gutter-x) * 4.5);*/
+  /*padding-left: calc(var(--bs-gutter-x) * 4.5);*/
+  padding-left: 5rem;
+  padding-right: 5rem;
+  margin-bottom: 1rem;
 }
 .carousel-control-prev, .carousel-control-next{
   width :10%;
@@ -70,6 +75,11 @@
   padding: 0rem;
   background-color: #0000;
   border: 0px;
+  max-width: 100%;
+}
+
+.album-img{
+  border-radius: 0;
   max-width: 80%;
 }
 
