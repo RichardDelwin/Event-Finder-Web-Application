@@ -72,16 +72,15 @@ export class DataServiceService {
 
     let url = this.node_server_url + "eventSearch?";
     const request = await fetch(url + new URLSearchParams(params));
-    const response = await request.json();
-    this.eventDetailsSubject.next(response)
+    const eventResponse = await request.json();
+    this.eventDetailsSubject.next(eventResponse)
 
-    let venueRes = await this.getVenueDetails({"id": response.venueId})
+    const venueRes = await this.getVenueDetails({"id": eventResponse.venueId})
     this.venueDetailsSubject.next(venueRes);
 
-    let res = await this.getArtistData(response);
-    this.artistsSpotifySubject.next(res);
+    let artistRes = await this.getArtistData(eventResponse);
+    this.artistsSpotifySubject.next(artistRes);
 
-    return response;
   }
 
   async getVenueDetails(params: {[key:string]: any}) : Promise<any>{
@@ -99,19 +98,30 @@ export class DataServiceService {
       return res;
     }
     else{
+      let artistRequests = []
       for(let i=0; i<data.attractionsMusic.length; i++){
         let url = this.node_server_url + "spotify?";
-        const request = await fetch(url + new URLSearchParams({"artist":data.attractionsMusic[i]}));
-        const response = await request.json();
+        // const request =
+        // const response = await request.json();
+        // const response = request.json();
 
-        if(Object.keys(response).length !==0) {
-          res.push(response);
+        artistRequests.push(fetch(url + new URLSearchParams({"artist":data.attractionsMusic[i]})));
+
         }
+      Promise.all(artistRequests)
+        .then(results => Promise.all(results.map(r => r.json())))
+        .then(value=> {
+
+          console.log("ARTIST_REQUESTS",value);
+          for (let val of value) {
+            if (Object.keys(val).length !== 0) {
+              res.push(val);
+            }
+          }
+        })
       }
       return res;
     }
-
-  }
 
   // async autocompleteData(keyword : string) : Promise<any>{
   //   let url = "http://localhost:3000/autocomplete?keyword="+keyword;
@@ -128,3 +138,4 @@ export class DataServiceService {
 // https://www.edgesidesolutions.com/using-angular-shared-service/
 // https://www.dotnettricks.com/learn/angular/sharing-data-between-angular-components-methods
 // https://fireship.io/lessons/sharing-data-between-angular-components-four-methods/
+// https://stackoverflow.com/questions/54896470/how-to-return-the-promise-all-fetch-api-json-data
