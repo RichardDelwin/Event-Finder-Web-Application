@@ -41,6 +41,7 @@
     <mat-tab label="Artists/Teams">
       <div *ngIf="artists && artists.length>0" class="carousel-container">
         <div id="artist-carousal" class="carousel carousel-dark slide" data-bs-interval="false">
+<!--        <div id="artist-carousal" class="carousel slide" data-bs-ride="false">-->
           <div  class="carousel-inner">
             <div *ngFor="let artist of artists; let i= index;" class="carousel-item" [ngClass]="{'active':i==0}">
               <div class="row">
