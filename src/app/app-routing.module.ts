@@ -10,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
@@ -19,3 +19,4 @@ export class AppRoutingModule { }
 // References
 // https://angular.io/guide/router
 // https://www.smashingmagazine.com/2018/11/a-complete-guide-to-routing-in-angular/
+// https://stackoverflow.com/questions/55841029/how-to-fix-angular-route-not-working-on-reload
