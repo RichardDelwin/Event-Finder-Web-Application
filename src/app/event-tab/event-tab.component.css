@@ -10,6 +10,8 @@
   min-height:100px;
   margin-top: 6rem;
   margin-bottom: 3rem;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   /*position: static;*/
 }
 #back_icon{
