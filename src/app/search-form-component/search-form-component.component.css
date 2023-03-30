@@ -27,3 +27,9 @@
 .form-check-label{
   margin-top: 1.25rem;
 }
+
+.form-select option{
+  background-color: rgb(12 12 12 / 85%);
+  /* opacity: 0.5; */
+  color: white;
+}
