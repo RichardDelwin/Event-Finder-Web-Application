@@ -1,0 +1,15 @@
+runtime: nodejs18
+
+handlers:
+
+  - url: /(.*\.js)
+    mime_type: text/javascript
+    static_files: dist/hw8v2/\1
+    upload: dist/hw8v2/(.*\.js)
+
+  - url: /
+    static_files: dist/hw8v2/index.html
+    upload: dist/hw8v2/index.html
+
+  - url: /
+    static_dir: dist/hw8v2
