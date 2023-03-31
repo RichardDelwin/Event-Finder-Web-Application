@@ -28,3 +28,12 @@
   border-radius: 20px;
   font-weight: bold;
 }
+
+.favorite-events-message{
+  font-family: Helvetica, Arial, sans-serif;
+  color: #6cfbdc;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: larger;
+}
