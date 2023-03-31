@@ -19,7 +19,7 @@ export class SearchFormComponentComponent implements OnInit{
   enteredDistance: Number = 10;
   searchMoviesCtrl = new FormControl();
   minLengthTerm = 1;
-  filteredMovies: string[] = [];
+  suggestedAttractions: string[] = [];
   isLoading = false;
   constructor(private dataService : DataServiceService, private componentUpdateService: ComponentUpdateService) {
   }
@@ -29,18 +29,18 @@ export class SearchFormComponentComponent implements OnInit{
       .pipe(
         filter(res => {
           if(res.length == 0){
-            this.filteredMovies=[];
+            this.suggestedAttractions=[];
           }
           return res !== null && res.length >= this.minLengthTerm;
         }),
         distinctUntilChanged(),
         debounceTime(100),
       tap(()=>{
-        this.filteredMovies=[];
+        this.suggestedAttractions=[];
         this.isLoading= true})).
     subscribe(keyword=>{
       this.autoComplete(keyword);
-      // console.log(this.filteredMovies);
+      // console.log(this.suggestedAttractions);
     })
   }
 
@@ -51,21 +51,21 @@ export class SearchFormComponentComponent implements OnInit{
       .then(res=> res.json())
       .then(res=>{
         // console.log(res);
-        this.filteredMovies=[]
+        this.suggestedAttractions=[]
 
         for(let i=0; i<res.length; i++){
-          this.filteredMovies.push(res[i]);
+          this.suggestedAttractions.push(res[i]);
         }
         this.isLoading=false;
       })
-    // console.log("filteredMovies = ",this.filteredMovies);
+    // console.log("suggestedAttractions = ",this.suggestedAttractions);
   }
 
   async onSearch(f: NgForm) {
 
     this.cleanComponents();
 
-    this.filteredMovies=[];
+    this.suggestedAttractions=[];
     // console.log(f);
     let formData = {
       keyword: this.enteredKeyword,
