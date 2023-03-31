@@ -25,13 +25,13 @@ export class EventTabComponent implements OnInit {
   }
 
   backClicked() {
-    console.log("Clicked");
+    // console.log("Clicked");
     this.componentUpdateService.updateTableVisibilityOnly("visible");
     this.componentUpdateService.emitEventCardStatus(false);
     // this.componentUpdateService.emitChange(true);
-    console.log(this.eventDetails);
-    console.log(this.artists);
-    console.log(this.venueDetails);
+    // console.log(this.eventDetails);
+    // console.log(this.artists);
+    // console.log(this.venueDetails);
   }
 
   ngOnInit(): void {
