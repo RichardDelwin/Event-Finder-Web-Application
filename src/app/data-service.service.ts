@@ -9,7 +9,7 @@ export class DataServiceService {
   ipinfo_url = `https://ipinfo.io/?token=${this.ipinfo_token}`
   gmaps_api = "AIzaSyBMp7FiafypEXvkS4Hrhya4-hhDh3nnlr4";
 
-  node_server_url = "https://myloth-hw8-backend-icno4892.wl.r.appspot.com/"
+  node_server_url = "https://myloth-hw8-backend-icno4892.wl.r.appspot.com/"; //"http://localhost:3500/"
 
   private allRecordsInTableSubject = new Subject<any>();
   allRecordsInTable = this.allRecordsInTableSubject.asObservable();
