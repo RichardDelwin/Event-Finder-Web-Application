@@ -9,8 +9,8 @@
       <input matInput type="text" class="form-control" id="keyword-field" name="keyword-field" required [(ngModel)]="enteredKeyword" [matAutocomplete]="auto" [formControl]="searchMoviesCtrl">
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="30"></mat-spinner></mat-option>
-        <mat-option  *ngFor="let movie of filteredMovies" [value]="movie">
-            {{movie}}
+        <mat-option *ngFor="let suggestion of suggestedAttractions" [value]="suggestion">
+            {{suggestion}}
           </mat-option>
 
       </mat-autocomplete>
