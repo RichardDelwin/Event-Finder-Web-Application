@@ -10,7 +10,7 @@ export class FavoritesFormComponent implements OnInit{
 
   ngOnInit(): void {
 
-    console.log("Favs table");
+    // console.log("Favs table");
     this.updateRecords();
   }
 
