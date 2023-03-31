@@ -40,7 +40,7 @@ export class SearchFormComponentComponent implements OnInit{
         this.isLoading= true})).
     subscribe(keyword=>{
       this.autoComplete(keyword);
-      console.log(this.filteredMovies);
+      // console.log(this.filteredMovies);
     })
   }
 
@@ -50,7 +50,7 @@ export class SearchFormComponentComponent implements OnInit{
     fetch(url)
       .then(res=> res.json())
       .then(res=>{
-        console.log(res);
+        // console.log(res);
         this.filteredMovies=[]
 
         for(let i=0; i<res.length; i++){
@@ -58,7 +58,7 @@ export class SearchFormComponentComponent implements OnInit{
         }
         this.isLoading=false;
       })
-    console.log("filteredMovies = ",this.filteredMovies);
+    // console.log("filteredMovies = ",this.filteredMovies);
   }
 
   async onSearch(f: NgForm) {
@@ -66,7 +66,7 @@ export class SearchFormComponentComponent implements OnInit{
     this.cleanComponents();
 
     this.filteredMovies=[];
-    console.log(f);
+    // console.log(f);
     let formData = {
       keyword: this.enteredKeyword,
       category: f.value["category-field"],
@@ -87,7 +87,7 @@ export class SearchFormComponentComponent implements OnInit{
         formData.longitude = location.longitude;
       }
     }
-    console.log(formData);
+    // console.log(formData);
     this.dataService.getEventRecords(formData);
     this.componentUpdateService.emitChange(true);
     this.componentUpdateService.updateTableVisibilityOnly("visible");
