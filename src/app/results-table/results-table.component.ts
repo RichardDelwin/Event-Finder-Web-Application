@@ -17,7 +17,7 @@ export class ResultsTableComponent {
   }
 
   recordClicked(row: any) {
-    console.log(row.id)
+    // console.log(row.id)
     this.dataService.getEventDetails({"id":row.id});
     // this.componentUpdateService.emitChange(false);
     this.componentUpdateService.updateTableVisibilityOnly("table-invisible");
