@@ -13,7 +13,7 @@ export class EventTabComponent implements OnInit {
   eventDetails: eventDetailsType | undefined;
   public artists: any | undefined;
 
-  venueDetails : any;
+  venueDetails : any | undefined;
   show: boolean = false;
   show_gr: boolean = false;
   show_cr: boolean = false;
