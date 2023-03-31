@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject} from "rxjs";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -53,7 +54,7 @@ export class DataServiceService {
       result = {"latitude" : lat, "longitude" : long};
     }
     catch(error){
-      console.log(error);
+      // console.log(error);
     }
     return result;
   }
@@ -63,7 +64,7 @@ export class DataServiceService {
     let url = this.node_server_url + "search?";
     const request = await fetch(url + new URLSearchParams(params));
     const response = await request.json();
-    console.log(response);
+    // console.log(response);
     this.allRecordsInTableSubject.next(response)
     return response;
   }
@@ -87,8 +88,7 @@ export class DataServiceService {
 
     let url = this.node_server_url + "venueSearch?";
     const request = await fetch(url + new URLSearchParams(params));
-    const response = await request.json();
-    return response;
+    return await request.json();
   }
 
   async getArtistData(data: any){
@@ -112,7 +112,7 @@ export class DataServiceService {
         .then(results => Promise.all(results.map(r => r.json())))
         .then(value=> {
 
-          console.log("ARTIST_REQUESTS",value);
+          // console.log("ARTIST_REQUESTS",value);
           for (let val of value) {
             if (Object.keys(val).length !== 0) {
               res.push(val);
