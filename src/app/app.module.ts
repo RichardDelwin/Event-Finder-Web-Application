@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainBodyComponent } from './main-body/main-body.component';
 import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
 import { SearchFormComponentComponent } from './search-form-component/search-form-component.component';
 import { FavoritesFormComponent } from './favorites-form/favorites-form.component';
@@ -24,7 +23,6 @@ import { SearchPageComponent } from './search-page/search-page.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainBodyComponent,
     NavbarComponentComponent,
     SearchFormComponentComponent,
     FavoritesFormComponent,
