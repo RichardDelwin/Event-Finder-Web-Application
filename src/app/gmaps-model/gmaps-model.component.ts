@@ -23,7 +23,7 @@ export class GmapsModelComponent {
       zoom : 14
     }
 
-    console.log("UpdateData", value);
+    // console.log("UpdateData", value);
   }
 
 
