@@ -1,8 +1,8 @@
 #background-image{
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0)), url('./assets/background.jpg');
-  height: 100%;
-  width: 99%;
-  margin: 0 5px 0 5px;
+  /*height: 100%;*/
+  /*width: 99%;*/
+  margin: 0 0.75rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
